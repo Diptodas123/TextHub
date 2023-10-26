@@ -27,23 +27,21 @@ function App() {
       setmode("light");
       document.body.style.backgroundColor = "white";
       showAlert("Light Mode has been enabled", "success");
-      document.title = "StringHelper - Light Mode"
     } else {
       setmode("dark");
       document.body.style.backgroundColor = "#042743";
       showAlert("Dark Mode has been enabled", "success");
-      document.title = "StringHelper - Dark Mode"
     }
   }
   return (
     <>
       <Router>
-        <Navbar title="StringHelper" mode={mode} toggleMode={toggleMode} />
+        <Navbar title="TextHub" mode={mode} toggleMode={toggleMode} />
         <Alert alert={alert} />
-        <div className="my-3">
+        <div className="my-2">
           <Routes>
             <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter the text to analyse below" mode={mode} />}></Route>
-            <Route exact path="/about" element={<About />}></Route>
+            <Route exact path="/about" element={<About mode={mode} pageTitle={"About – TextHub"} />} ></Route>
           </Routes>
         </div>
       </Router>
